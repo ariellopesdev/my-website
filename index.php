@@ -17,13 +17,24 @@
 </head>
 
 <body>
+    <?php
+         $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+         switch ($url){
+            case 'depoimentos':
+                echo '<target target="depoimentos" />';
+                break;
+            case 'servicos':
+                echo '<target target="servicos" />';
+                break;
+         }
+    ?>
     <header>
         <div class="center">
             <div class="logo left"><a href="/">Logomarca</a></div>
             <nav class="desktop right">
                 <ul>
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
                 </ul>
@@ -36,7 +47,7 @@
                 <!--botao-menu-mobile-->
                 <ul>
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
                 </ul>
@@ -47,14 +58,19 @@
         <!--center-->
     </header>
     <?php
-    $url = isset($_GET['url']) ? $_GET['url'] : 'home';
-
     if (file_exists('pages/' . $url . '.php')) {
         include('pages/' . $url . '.php');
     } else {
-        $pagina404 = true;
-        include('pages/404.php');
+        if($url != 'depoimentos' && $url != 'servicos'){
+            $pagina404 = true;
+            include('pages/404.php');
+        }else{
+            include('pages/home.php');
+        }
     }
+    ?>
+    <?php
+        $url = isset($_GET['url']) ? $_GET['url'] : 'contato';
     ?>
     <footer <?php if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"' ?>>
         <div class="center">
@@ -64,12 +80,6 @@
     </footer>
     <script src="<?php echo INCLUDE_PATH; ?>JS/jquery.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>JS/scripts.js"></script>
-    <?php
-    if ($url == 'contato') {
-    ?>
-        <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
-        <script src="<?php echo INCLUDE_PATH; ?>JS/initMap.js"></script>
-    <?php } ?>
 </body>
 
 </html>
