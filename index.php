@@ -80,6 +80,11 @@
     </footer>
     <script src="<?php echo INCLUDE_PATH; ?>JS/jquery.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>JS/scripts.js"></script>
+    <?php
+        if($url == 'home' || $url == ''){
+    ?>
+    <script src="<?php echo INCLUDE_PATH; ?>JS/slider.js"></script>
+    <?php } ?>
 </body>
 
 </html>
