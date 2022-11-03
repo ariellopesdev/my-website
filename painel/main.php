@@ -26,13 +26,13 @@ if (isset($_GET['loggout'])) {
         <div class="menu-wraper">
             <div class="box-usuario">
                 <?php
-                if ($_SESSION['img'] == '') {
+                    if ($_SESSION['img'] == '') {
                 ?>
                     <div class="avatar-usuario">
                         <i class="fa fa-user"></i>
                     </div>
                     <!--avatar-usuario-->
-                <?php } else { ?>
+                <?php }else { ?>
                     <div class="imagem-usuario">
                         <img src="<?php echo INCLUDE_PATH_PAINEL ?>uploads/<?php echo $_SESSION['img']; ?>" />
                     </div>
@@ -80,7 +80,7 @@ if (isset($_GET['loggout'])) {
     </header>
     <div class="content">
         <div class="box-content left w100">
-            <h2><i class="fa fa-home"></i>Painel de Controle - <?php echo $nomeEmpresa ?></h2>
+            <h2><i class="fa fa-home"></i> Painel de Controle - <?php echo $nomeEmpresa ?></h2>
             <div class="box-metricas">
                 <div class="box-metrica-single">
                     <div class="box-metrica-wraper">

@@ -109,7 +109,7 @@ div.menu{
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
-    padding: 10px;
+    padding: 10px 0;
     position: fixed;
     left: 0;
     top: 0;
@@ -136,6 +136,22 @@ div.menu{
     -ms-transform: translate(-50%,-50%);
     font-size: 50px;
     color: #2f3d42;
+}
+.imagem-usuario{
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    position: relative;
+    border: 3px solid #2f3d42;
+    border-radius: 50%;
+}
+.imagem-usuario img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 .nome-usuario{
     text-align: center;
@@ -170,17 +186,74 @@ div.menu{
     padding: 10px;
     margin-bottom: 10px;
 }
-@media screen and (max-width:768px) {
-    .menu{
-        display: none;
+.items-menu{
+    margin-top: 30px;
+}
+.items-menu h2{
+    text-align: left;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #2f3d4d;
+    color: white;
+    padding: 8px;
+}
+.items-menu a{
+    display: block;
+    padding: 8px;
+    font-weight: 300;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid #2f3c4d;
+}
+/*Box-metricas*/
+.box-metricas{
+    margin-top: 16px;
+    padding: 0 15px;
+}
+.box-metrica-single{
+    float: left;
+    position: relative;
+    width: 33.3%;
+    background-color: #f4b03e;
+    border: 5px solid white;
+}
+.box-metricas .box-metrica-single:nth-of-type(2){
+    background-color: #e05c4e;
+}
+.box-metricas .box-metrica-single:nth-of-type(3){
+    background-color: #04a65a;
+}
+.box-metrica-wraper{
+    padding: 10px 20px;
+    text-align: left;
+    color: white;
+}
+@media screen and (max-width:1200px) {
+    .box-metrica-single{
+        min-height: 100px;
     }
+}
+@media screen and (max-width:1024px) {
+    .box-metrica-single{
+        width: 100%;
+        height: auto;
+    }
+}
+@media screen and (max-width:768px) {
     .content{
         width: 100%;
         left: 0;
     }
     header{
-        width: 100%;
         left: 0;
+        width: 100%;
+    }
+}
+@media screen and (max-width:500px){
+    .box-metrica-single{
+        width: 100%;
+        padding-top: 40%;
     }
 }
 @media screen and (max-width:400px){
