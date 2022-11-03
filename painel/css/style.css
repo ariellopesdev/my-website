@@ -11,6 +11,9 @@ body {
     height: 100%;
     background-color: rgb(225, 225, 225);
 }
+body{
+    overflow-x: hidden;
+}
 /*Página de Login*/
 .box-login {
     box-shadow: 10px 10px 5px rgb(200, 200, 200);
@@ -75,7 +78,8 @@ body {
 
 
 header{
-    float: left;
+    position: relative;
+    left: 300px;
     padding: 10px 0;
     background-color: #78909c;
     width: calc(100% - 300px);
@@ -98,11 +102,17 @@ header{
     color: white;
     cursor: pointer;
 }
-
+.menu-wraper{
+    width: 300px;
+}
 div.menu{
+    overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
     padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
     background-color: #455a64;
     float: left;
     width: 300px;
@@ -134,5 +144,47 @@ div.menu{
 .nome-usuario p{
     color: white;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: normal;
+}
+/*Conteúdo principal do painel*/
+.w100{
+    width: 100%;
+}
+.w50{
+    width: 49%;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.content{
+    width: calc(100% - 300px);
+    position: relative;
+    left: 300px;
+    padding: 10px;
+}
+.box-content{
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+@media screen and (max-width:768px) {
+    .menu{
+        display: none;
+    }
+    .content{
+        width: 100%;
+        left: 0;
+    }
+    header{
+        width: 100%;
+        left: 0;
+    }
+}
+@media screen and (max-width:400px){
+    .menu-wraper{
+        width: 200px;
+    }
 }

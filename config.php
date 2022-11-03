@@ -16,4 +16,13 @@
     define('USER','root');
     define('PASSWORD','');
     define('DATABASE','my_website');
+
+    //Funções
+    function pegaCargo($cargo){
+        $arr = [
+            '0' => 'Normal',
+            '1' => 'Sub Administrador',
+            '2' => 'Administrador'];
+        return $arr [$cargo];
+    }
 ?>
