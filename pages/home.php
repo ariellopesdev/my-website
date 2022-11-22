@@ -22,6 +22,7 @@
     <div class="center">
         <div class="w50 left">
             <h2>Ariel Lopes</h2>
+            <h3><i class="fa fa-css3" aria-hidden="true"></i></h3>
             <p>
                 “Não importa a distância que nos separa, se há um céu que nos une.” “Se você sabe explicar o que sente, não ama, pois o amor foge de todas as explicações possíveis.” “O mundo é grande e cabe nesta janela sobre o mar. O mar é grande e cabe na cama e no colchão de amar.
             </p>

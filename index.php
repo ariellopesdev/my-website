@@ -56,7 +56,7 @@
                     <li><a realtime="outro-menu" href="<?php echo INCLUDE_PATH; ?>outro-menu">Outro menu</a></li>
                 </ul>
             </nav>
-            <!--mobile-->
+            <!--mobile-right-->
             <div class="clear"></div>
         </div>
         <!--center-->
