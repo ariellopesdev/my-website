@@ -88,8 +88,10 @@ header{
     float: right;
 }
 .loggout a{
+    padding: 0 20px;
+    position: relative;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
 }
 .loggout a > span{
@@ -184,7 +186,11 @@ div.menu{
 .box-content{
     background: white;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+}
+.box-content h2{
+    font-size: 18px;
+    font-weight: 400;
 }
 .items-menu{
     margin-top: 30px;
@@ -199,9 +205,9 @@ div.menu{
 }
 .items-menu a{
     display: block;
-    padding: 8px;
+    padding: 8px 8px 8px 16px;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
     color: white;
     border-bottom: 2px solid #2f3c4d;
@@ -229,6 +235,92 @@ div.menu{
     text-align: left;
     color: white;
 }
+.box-metrica-wraper h2{
+    font-size: 20px;
+    font-weight: 300;
+}
+.box-metricas-wraper p{
+    font-size: 22px;
+    font-weight: 700;
+}
+/*Tabela Usuários*/
+
+.table-responsive{
+    max-width: 1280px;
+    margin: 20px auto;
+}
+.table-responsive .row:nth-of-type(1){
+    background-color: #00bfa5;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    color: white;
+}
+.table-responsive .row{
+    color: #777;
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+}
+.col{
+    float: left;
+    width: 50%;
+}
+.table-responsive span{
+    padding: 0 8px;
+}
+.box-content form{
+    margin: 30px 0;
+}
+.box-content form label{
+    font-size: 17px;
+    font-weight: 300;
+    color: black;
+    display: block;    
+}
+.box-content .form-group{
+    margin: 15px 0;
+}
+.box-content form input[type=text],
+.box-content form input[type=password]
+{
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding-left: 8px;
+}
+.box-content form input[type=file]{
+    margin-top: 8px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.box-content form input[type=submit]{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #00bfa5;
+    color: white;
+    border: 0;
+}
+/*Box de Alerta*/
+.box-alert{
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+}
+.sucesso{
+    background-color: #a5d6a7;
+    color: white;
+}
+.erro{
+    background-color: #f75353;
+    color: white;
+}
 @media screen and (max-width:1200px) {
     .box-metrica-single{
         min-height: 100px;
@@ -243,10 +335,8 @@ div.menu{
 @media screen and (max-width:768px) {
     .content{
         width: 100%;
-        left: 0;
     }
     header{
-        left: 0;
         width: 100%;
     }
 }

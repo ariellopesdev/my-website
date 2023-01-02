@@ -1,6 +1,9 @@
 <?php include('config.php'); ?>
-<html>
+<?php Site::updateUsuarioOnline(); ?>
+<?php Site::contador(); ?>
 
+<!DOCTYPE html>
+<html>
 <head>
     <title>Projeto 01</title>
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>estilo/font-awesome.min.css">
@@ -30,6 +33,11 @@
                 break;
          }
     ?>
+    <!-- <div class="sucesso">Formulário enviado com sucesso!</div>
+    <div class="overlay-loading">
+        <img src="<?php echo INCLUDE_PATH ?>images/ajax-loader.gif" />
+    </div>overlay-loading -->
+
     <header>
         <div class="center">
             <div class="logo left"><a href="/">Logomarca</a></div>

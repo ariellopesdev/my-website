@@ -20,11 +20,11 @@ $(function(){
             });
         }else{
             //O menu está fechado
-            $('.menu').css('display','block');
-            $('.menu').animate({'width':targetSizeMenu+'px','padding':'10px'},function(){
+            $('.menu').css('display','block').css('padding','10px 0');
+            $('.menu').animate({'width':targetSizeMenu+'px'},function(){
                 open = true;
             });
-            //$('.content,header').css('width','calc(100% - 300px)');
+            $('.content,header').css('width','calc(100% - 300px)');
             $('.content,header').animate({'left':targetSizeMenu+'px'},function(){
                 open = true;
             });
@@ -34,7 +34,7 @@ $(function(){
         windowSize = $(window)[0].innerWidth;
         if(windowSize <= 768){
             $('.menu').css('width','0').css('padding','0');
-            $('.content,header').css('width','100').css('left','0');
+            $('.content,header').css('width','100%').css('left','0');
             open = false;
         }else{
             open = true;
