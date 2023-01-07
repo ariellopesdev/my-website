@@ -1,5 +1,10 @@
 <?php
     class Painel{
+        public static $cargos = [
+            '0' => 'Normal',
+            '1' => 'Sub Administrador',
+            '2' => 'Administrador'];
+
         public static function logado(){
             return isset($_SESSION['login']) ? true: false;
         }
@@ -50,8 +55,10 @@
             }
         }
         public static function uploadFile($file){
-            if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$file['name'])){
-                return $file['name'];
+            $formatoArquivo = explode('.',$file['name']);
+            $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
+            if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$imagemNome)){
+                return $imagemNome;
             }else{
                 return false;
             }
