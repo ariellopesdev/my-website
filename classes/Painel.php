@@ -90,6 +90,37 @@
             }
             return $certo;
         }
+
+        public static function update($arr){
+            $certo = true;
+            $first = false;
+            $nome_tabela = $arr['nome_tabela'];
+            $query = "UPDATE `$nome_tabela` SET ";
+            foreach($arr as $key => $value){
+                $nome = $key;
+                $valor = $value;
+                if($nome == 'acao' || $nome == 'nome_tabela' || $nome == 'id')
+                    continue;
+                if($value == ''){
+                    $certo = false;
+                    break;
+                }
+                if($first == false){
+                    $first = true;
+                    $query.="$nome=?";
+                }else{
+                    $query.=",$nome=?";
+                }
+                $parametros[] = $value;//Sempre que utilizar colchetes é autoincromento, 0 1 2 3 4 o sistema fará sozinho
+            }
+            if($certo == true){
+                $parametros[] = $arr['id'];
+                $sql = Mysql::conectar()->prepare($query.' WHERE id=?');
+                $sql -> execute($parametros);
+            }
+            return $certo;
+        }
+
         public static function selectAll($tabela,$start = null,$end = null){
             if($start == null && $end == null){
                 $sql = Mysql::conectar()->prepare("SELECT * FROM `$tabela`");
@@ -110,6 +141,12 @@
         public static function redirect($url){
             echo '<script>location.href="'.$url.'"</script>';
             die();
+        }
+        /*Método específico apenas para selecionar um registro*/
+        public static function select($table,$query,$arr){
+            $sql = Mysql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
+            $sql->execute($arr);
+            return $sql->fetch();
         }
     }
 ?>
