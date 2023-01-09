@@ -212,6 +212,69 @@ div.menu{
     color: white;
     border-bottom: 2px solid #2f3c4d;
 }
+/*Tabelas*/
+.wraper-table{
+    overflow-x: auto;
+}
+table{
+    font-weight: 300;
+    min-width: 900px;
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+table tr:nth-of-type(1){
+    background-color: #0091ea;
+    color: white;
+}
+table td:nth-of-type(1){
+    width: 42%;
+}
+table td:nth-child(2){
+    width: 42%;
+}
+table td:nth-child(3){
+    width: 8%;
+}
+table tr{
+    color: #555;
+    border-bottom: 1px solid #ccc;
+}
+table td{
+    padding: 8px;
+}
+table a.btn{
+    text-decoration: none;
+    padding: 4px 6px;
+    color: white;
+    font-size: 13px;
+}
+a.btn.edit{
+    display: inline-block;
+    background-color: #fa803e;
+}
+a.btn.delete{
+    background-color: #e05c4e;
+}
+
+/*Paginação*/
+.paginacao{
+    margin: 20px 0;
+    text-align: center;
+}
+.paginacao a{
+    font-size:14px;
+    margin: 0 8px;
+    display: inline-block;
+    padding: 3px 4px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #666;
+}
+.paginacao .page-selected{
+    background-color: rgb(220,220,220);
+}
+
 /*Box-metricas*/
 .box-metricas{
     margin-top: 16px;

@@ -52,7 +52,7 @@ if (isset($_GET['loggout'])) {
                 <a <?php selecionadoMenu('cadastrar-servico');?> href="">Cadastrar Serviços</a>
                 <a <?php selecionadoMenu('cadastrar-slides');?> href="">Cadastrar Slides</a>
                 <h2>Gestão</h2>
-                <a <?php selecionadoMenu('listar-depoimentos');?> href="">Listar Depoimento</a>
+                <a <?php selecionadoMenu('listar-depoimentos');?> href="<?php echo INCLUDE_PATH_PAINEL ?>listar-depoimentos">Listar Depoimento</a>
                 <a <?php selecionadoMenu('listar-servicos');?> href="">Listar Serviços</a>
                 <a <?php selecionadoMenu('listar-slides');?> href="">Listar Slides</a>
                 <h2>Administração do Painel</h2>
@@ -85,6 +85,7 @@ if (isset($_GET['loggout'])) {
     </div>
     <!--content-->
     <script src="<?php echo INCLUDE_PATH ?>JS/jquery.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL ?>JS/jquery.mask.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL ?>JS/main.js"></script>
 </body>
 

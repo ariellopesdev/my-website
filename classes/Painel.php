@@ -90,5 +90,26 @@
             }
             return $certo;
         }
+        public static function selectAll($tabela,$start = null,$end = null){
+            if($start == null && $end == null){
+                $sql = Mysql::conectar()->prepare("SELECT * FROM `$tabela`");
+            }else{
+                $sql = Mysql::conectar()->prepare("SELECT * FROM `$tabela` LIMIT $start,$end");
+            }    
+            $sql->execute();
+            return $sql->fetchAll();
+        }
+        public static function deletar($tabela,$id=false){
+            if($id == false){
+                $sql = Mysql::conectar()->prepare("DELETE FROM `$tabela`");
+            }else{
+                $sql = Mysql::conectar()->prepare("DELETE FROM `$tabela` WHERE id = $id");
+            }
+            $sql->execute();
+        }
+        public static function redirect($url){
+            echo '<script>location.href="'.$url.'"</script>';
+            die();
+        }
     }
 ?>

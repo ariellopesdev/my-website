@@ -41,7 +41,7 @@
 </div>
 <!--box-content-->
 
-<div class="box-content w50 left">
+<div class="box-content w100 left">
     <h2><i class="fa fa-user"></i> Usuários Online no Site</h2>
     <div class="table-responsive">
         <div class="row">
@@ -69,7 +69,7 @@
     </div><!--table-responsive-->
 </div><!--box-content-->
 
-<div class="box-content w50 right">
+<div class="box-content w100 right">
     <h2><i class="fa fa-user"></i> Usuários do Painel</h2>
     <div class="table-responsive">
         <div class="row">

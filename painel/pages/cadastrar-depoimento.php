@@ -20,7 +20,7 @@
         </div><!--form-group-->
         <div class="form-group">
             <label>Data:</label>
-            <input type="text" name="data">
+            <input formato="data" type="text" name="data">
         </div><!--form-group-->
         <div class="form-group">
             <input type="hidden" name="nome_tabela" value= "tb_site.depoimentos">
