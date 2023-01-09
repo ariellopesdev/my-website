@@ -84,8 +84,10 @@
                 $parametros[] = $value;//Sempre que utilizar colchetes é autoincromento, 0 1 2 3 4 o sistema fará sozinho
             }
             $query.=")";
-            $sql = Mysql::conectar()->prepare($query);
-            $sql->execute(array($parametros));
+            if($certo == true){
+                $sql = Mysql::conectar()->prepare($query);
+                $sql->execute($parametros);
+            }
             return $certo;
         }
     }
