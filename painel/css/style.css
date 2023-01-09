@@ -291,6 +291,17 @@ div.menu{
     border: 1px solid #ccc;
     padding-left: 8px;
 }
+.box-content form textarea{
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    resize: vertical;
+}
 .box-content form select{
     margin-top: 8px;
     font-size: 16px;
@@ -336,6 +347,16 @@ div.menu{
 }
 .menu-active::before{
     content:'>> ';
+}
+.form-group-login label{
+    font-size:13px;
+    padding-right: 6px;
+    font-weight: 300;
+    color: black;
+}
+form .form-group-login:nth-of-type(2){
+    position: relative;
+    top: 10px;
 }
 @media screen and (max-width:1200px) {
     .box-metrica-single{

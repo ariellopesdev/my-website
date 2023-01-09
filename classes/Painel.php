@@ -9,6 +9,7 @@
             return isset($_SESSION['login']) ? true: false;
         }
         public static  function loggout(){
+            setcookie('lembrar',true,time()-1,'/');
             session_destroy();
             header('Location: '.INCLUDE_PATH_PAINEL);
         }
@@ -65,6 +66,27 @@
         }
         public static function deleteFile($file){
             @unlink('uploads/'.$file);
+        }
+        public static function insert($arr){
+            $certo = true;
+            $nome_tabela = $arr['nome_tabela'];
+            $query = "INSERT INTO `$nome_tabela` VALUES(null";
+            foreach($arr as $key => $value){
+                $nome = $key;
+                $valor = $value;
+                if($nome == 'acao' || $nome == 'nome_tabela')
+                    continue;
+                if($value == ''){
+                    $certo = false;
+                    break;
+                }
+                $query.=",?";
+                $parametros[] = $value;//Sempre que utilizar colchetes é autoincromento, 0 1 2 3 4 o sistema fará sozinho
+            }
+            $query.=")";
+            $sql = Mysql::conectar()->prepare($query);
+            $sql->execute(array($parametros));
+            return $certo;
         }
     }
 ?>
