@@ -227,15 +227,6 @@ table tr:nth-of-type(1){
     background-color: #0091ea;
     color: white;
 }
-table td:nth-of-type(1){
-    width: 42%;
-}
-table td:nth-child(2){
-    width: 42%;
-}
-table td:nth-child(3){
-    width: 8%;
-}
 table tr{
     color: #555;
     border-bottom: 1px solid #ccc;
@@ -249,13 +240,9 @@ table a.btn{
     color: white;
     font-size: 13px;
 }
-a.btn.edit{
-    display: inline-block;
-    background-color: #fa803e;
-}
-a.btn.delete{
-    background-color: #e05c4e;
-}
+a.btn.edit{background-color: #fa803e;}
+a.btn.delete{background-color: #e05c4e;}
+a.btn.order{background-color: #0091ea;}
 
 /*Paginação*/
 .paginacao{
