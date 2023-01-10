@@ -1,6 +1,10 @@
 <?php
     if(isset($_GET['excluir'])){
         $idExcluir = intval($_GET['excluir']);
+        $selectImagem = Mysql::conectar()->prepare("SELECT slide FROM `tb_site.slides` WHERE id = ?");
+        $selectImagem->execute(array($_GET['excluir']));
+        $imagem = $selectImagem->fetch()['slide'];
+        Painel::deleteFile($imagem);
         Painel::deletar('tb_site.slides',$idExcluir);
         Painel::redirect(INCLUDE_PATH_PAINEL.'listar-slides');
     }else if(isset($_GET['order']) && isset($_GET['id'])){
@@ -27,8 +31,8 @@
             ?>
                 <tr>
                     <td><?php echo $value['nome']; ?></td>
-                    <td><img style="width: 50px;heigth:50px;" src="<?php echo INCLUDE_PATH_PAINEL ?>uploads/<?php $value['slide']; ?>"></td>
-                    <td><a class="btn edit" href="<?php echo INCLUDE_PATH_PAINEL ?>editar-slides?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
+                    <td><img style="width: 50px; height:50px;" src="<?php echo INCLUDE_PATH_PAINEL ?>uploads/<?php echo $value['slide']; ?>"></td>
+                    <td><a class="btn edit" href="<?php echo INCLUDE_PATH_PAINEL ?>editar-slide?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Editar</a></td>
                     <td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH_PAINEL ?>listar-slides?excluir=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Excluir</a></td>
                     <td><a class="btn order" href="<?php echo INCLUDE_PATH_PAINEL?>listar-slides?order=up&id=<?php echo $value ['id']?>"><i class="fa fa-angle-up"></i></a></td>
                     <td><a class="btn order" href="<?php echo INCLUDE_PATH_PAINEL?>listar-slides?order=down&id=<?php echo $value ['id']?>"><i class="fa fa-angle-down"></i></a></td>

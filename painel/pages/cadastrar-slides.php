@@ -15,7 +15,9 @@
                         Painel::alert('erro','   Formato escolhido não é válido. Selecione imagem com formatos .jpg, .jpeg ou png!');
                     }else{
                         //Apenas cadastrar no banco de dados!
+                        include('../classes/lib/WideImage.php');
                         $imagem = Painel::uploadFile($imagem);
+                        WideImage::load('uploads/'.$imagem)->resize(100)->saveToFile('uploads/'.$imagem);
                         $arr = ['nome'=>$nome,'slide'=>$imagem,'order_id'=>'0','nome_tabela'=>'tb_site.slides'];
                         Painel::insert($arr);
                         Painel::alert('sucesso','Cadastro do slide realizado com sucesso!');
