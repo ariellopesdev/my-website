@@ -94,7 +94,7 @@
             return $certo;
         }
 
-        public static function update($arr){
+        public static function update($arr,$single = false){
             $certo = true;
             $first = false;
             $nome_tabela = $arr['nome_tabela'];
@@ -117,9 +117,14 @@
                 $parametros[] = $value;//Sempre que utilizar colchetes é autoincromento, 0 1 2 3 4 o sistema fará sozinho
             }
             if($certo == true){
-                $parametros[] = $arr['id'];
-                $sql = Mysql::conectar()->prepare($query.' WHERE id=?');
-                $sql -> execute($parametros);
+                if($single == false){
+                    $parametros[] = $arr['id'];
+                    $sql = Mysql::conectar()->prepare($query.' WHERE id=?');
+                    $sql -> execute($parametros);
+                }else{
+                    $sql = Mysql::conectar()->prepare($query);
+                    $sql -> execute($parametros);
+                } 
             }
             return $certo;
         }
@@ -146,9 +151,14 @@
             die();
         }
         /*Método específico apenas para selecionar um registro*/
-        public static function select($table,$query,$arr){
-            $sql = Mysql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
-            $sql->execute($arr);
+        public static function select($table,$query = '',$arr = ''){
+            if($query != false){
+                $sql = Mysql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
+                $sql->execute($arr);
+            }else{
+                $sql = Mysql::conectar()->prepare("SELECT * FROM `$table`");
+                $sql->execute();
+            }
             return $sql->fetch();
         }
         public static function orderItem($tabela,$orderType,$idItem){
