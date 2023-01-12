@@ -60,6 +60,11 @@ if (isset($_GET['loggout'])) {
                 <a <?php selecionadoMenu('adicionar-usuario');?> <?php verificaPermissaoMenu(2);?> href="<?php echo INCLUDE_PATH_PAINEL?>adicionar-usuario">Adicionar Usuário</a>
                 <h2>Configuração Geral</h2>
                 <a <?php selecionadoMenu('editar-site');?> href="<?php echo INCLUDE_PATH_PAINEL?>editar-site">Editar Site</a>
+                <h2>Gestão de Notícias</h2>
+                <a <?php selecionadoMenu('cadastrar-categorias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-categorias">Cadastrar Categorias</a>
+                <a <?php selecionadoMenu('gerenciar-categorias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>gerenciar-categorias">Gerenciar Categorias</a>
+                <a <?php selecionadoMenu('cadastrar-noticias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-categorias">Cadastrar Notícias</a>
+                <a <?php selecionadoMenu('gerenciar-noticias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>gerenciar-noticias">Gerenciar Notícias</a>
             </div>
             <!--items-menu-->
         </div>
