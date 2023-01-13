@@ -4,7 +4,21 @@
             '0' => 'Normal',
             '1' => 'Sub Administrador',
             '2' => 'Administrador'];
-
+        public static function generateSlug($str){
+            $str = mb_strtoupper(($str));
+            $str = preg_replace('/(â|á|ã|Á|Ã|Â|À|à)/','a',$str);
+            $str = preg_replace('/(ê|é|Ê|É)/','e',$str);
+            $str = preg_replace('/(í|Í)/','i',$str);
+            $str = preg_replace('/(ú|Ú)/','u',$str);
+            $str = preg_replace('/(ó|ô|õ|Ô|Ó|Õ)/','o',$str);
+            $str = preg_replace('/(_|\/|!|\?|#)/','',$str);
+            $str = preg_replace('/( )/','-',$str);
+            $str = preg_replace('/(ç|Ç)/','c',$str);
+            $str = preg_replace('/(-[-]{1,})/','-',$str);
+            $str = preg_replace('/(,)/','-',$str);
+            $str = strtolower($str);
+            return $str;
+        }
         public static function logado(){
             return isset($_SESSION['login']) ? true: false;
         }
@@ -184,5 +198,6 @@
                 Painel::update(array('nome_tabela'=>$tabela,'id'=>$infoItemAtual['id'],'order_id'=>$itemBefore['order_id']));
             }
         }
+        
     }
 ?>

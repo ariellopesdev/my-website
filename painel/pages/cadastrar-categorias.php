@@ -9,16 +9,10 @@
                     Painel::alert('erro','   Campo nome é obrigatório!');  
                 }else{
                     //Podemos cadastrar!
-                    if(Painel::imagemValida($imagem) == false){
-                        Painel::alert('erro','   Formato escolhido não é válido. Selecione imagem com formatos .jpg, .jpeg ou png!');
-                    }else{
-                        //Apenas cadastrar no banco de dados!
-                        include('../classes/lib/WideImage.php');
-                        $imagem = Painel::uploadFile($imagem);
-                        $arr = ['nome'=>$nome,'slide'=>$imagem,'order_id'=>'0','nome_tabela'=>'tb_site.categorias'];
-                        Painel::insert($arr);
-                        Painel::alert('sucesso','Cadastro do slide realizado com sucesso!');
-                    }
+                    $slug = Painel::generateSlug($nome);
+                    $arr = ['nome'=>$nome,'slug'=>$slug,'order_id'=>'0','nome_tabela'=>'tb_site.categorias'];
+                    Painel::insert($arr);
+                    Painel::alert('sucesso','Cadastro da categoria  realizado com sucesso!');
                 }
             }
         ?>
