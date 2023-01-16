@@ -63,7 +63,7 @@ if (isset($_GET['loggout'])) {
                 <h2>Gestão de Notícias</h2>
                 <a <?php selecionadoMenu('cadastrar-categorias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-categorias">Cadastrar Categorias</a>
                 <a <?php selecionadoMenu('gerenciar-categorias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>gerenciar-categorias">Gerenciar Categorias</a>
-                <a <?php selecionadoMenu('cadastrar-noticias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-categorias">Cadastrar Notícias</a>
+                <a <?php selecionadoMenu('cadastrar-noticias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>cadastrar-noticias">Cadastrar Notícias</a>
                 <a <?php selecionadoMenu('gerenciar-noticias');?> href="<?php echo INCLUDE_PATH_PAINEL ?>gerenciar-noticias">Gerenciar Notícias</a>
             </div>
             <!--items-menu-->
@@ -92,6 +92,7 @@ if (isset($_GET['loggout'])) {
     <script src="<?php echo INCLUDE_PATH ?>JS/jquery.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL ?>JS/jquery.mask.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL ?>JS/main.js"></script>
+    <script src="<?php echo INCLUDE_PATH ?>JS/formularios.js"></script>
 </body>
 
 </html>
