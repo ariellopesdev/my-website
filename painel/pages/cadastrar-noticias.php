@@ -22,8 +22,9 @@
                         $slug = Painel::generateSlug($titulo);
                         $arr = ['categoria_id'=>$categoria_id,'titulo'=>$titulo,'conteudo'=>$conteudo,'capa'=>$imagem,'slug'=>$slug,'order_id'=>'0','nome_tabela'=>'tb_site.noticias'];
                         if(Painel::insert($arr)){
-                            Painel::alert('sucesso','   Notícia cadastrada com sucesso!');
+                            Painel::redirect(INCLUDE_PATH_PAINEL.'cadastrar-noticias?sucesso');
                         }
+                            // Painel::alert('sucesso','   Notícia cadastrada com sucesso!');
                     }else{
                         Painel::alert('erro','   Já existe uma notícia com esse nome!');
                     }
@@ -32,6 +33,8 @@
                 }
             }
         }
+        if(isset($_GET['sucesso']))
+            Painel::alert('sucesso','   O cadastro foi realizado com sucesso!');
         ?>
         <div class="form-group">
             <label>Categoria: </label>
@@ -50,7 +53,7 @@
         </div><!--form-group-->
         <div class="form-group">
             <label>Conteúdo: </label>
-            <textarea name="conteudo"><?php recoverPost('conteudo'); ?></textarea>
+            <textarea class="tinymce" name="conteudo"><?php recoverPost('conteudo'); ?></textarea>
         </div>
         <div class="form-group">
             <label>Imagem:</label>
