@@ -51,8 +51,8 @@
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>noticias">Notícias</a></li>
                     <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
-                    <li><a realtime="outro-menu" href="<?php echo INCLUDE_PATH; ?>outro-menu">Outro menu</a></li>
                 </ul>
             </nav>
             <!--desktop-->
@@ -65,8 +65,8 @@
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>depoimentos">Depoimentos</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
+                    <li><a href="<?php echo INCLUDE_PATH; ?>noticias">Notícias</a></li>
                     <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
-                    <li><a realtime="outro-menu" href="<?php echo INCLUDE_PATH; ?>outro-menu">Outro menu</a></li>
                 </ul>
             </nav>
             <!--mobile-right-->
