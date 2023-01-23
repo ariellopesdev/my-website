@@ -26,7 +26,7 @@
                             Painel::deleteFile($imagem_atual);
                             $imagem = Painel::uploadFile($imagem);
                             $slug = Painel::generateSlug($nome);
-                            $arr = ['titulo'=>$nome,'categoria_id'=>$_POST['categoria_id'],'conteudo'=>$conteudo,'capa'=>$imagem,'slug'=>$slug,'id'=>$id,'nome_tabela'=>'tb_site.noticias'];
+                            $arr = ['titulo'=>$nome,'data'=>date('Y-m-d'),'categoria_id'=>$_POST['categoria_id'],'conteudo'=>$conteudo,'capa'=>$imagem,'slug'=>$slug,'id'=>$id,'nome_tabela'=>'tb_site.noticias'];
                             Painel::update($arr);
                             $noticia = Painel::select('tb_site.noticias','id = ?',array($id));
                             Painel::alert('sucesso','   Notícia atualizada junto a imagem com sucesso!');

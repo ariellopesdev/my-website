@@ -9,32 +9,33 @@
             $conteudo = $_POST['conteudo'];
             $capa = $_FILES['capa'];
 
-            if($titulo == '' || $conteudo == ''){
-                Painel::alert('erro','   Campos vazios não são permitidos!');
-            }else if($capa['tmp_name'] == ''){
-                Painel::alert('erro','   A imagem de capa precisa ser selecionada!');
-            }else{
-                if(Painel::imagemValida($capa)){
+            if ($titulo == '' || $conteudo == '') {
+                Painel::alert('erro', '   Campos vazios não são permitidos!');
+            } else if ($capa['tmp_name'] == '') {
+                Painel::alert('erro', '   A imagem de capa precisa ser selecionada!');
+            } else {
+                if (Painel::imagemValida($capa)) {
                     $verifica = MySql::conectar()->prepare("SELECT * FROM `tb_site.noticias` WHERE titulo = ? AND categoria_id = ?");
-                    $verifica->execute(array($titulo,$categoria_id));
-                    if($verifica->rowCount() == 0){
+                    $verifica->execute(array($titulo, $categoria_id));
+                    if ($verifica->rowCount() == 0) {
                         $imagem = Painel::uploadFile($capa);
                         $slug = Painel::generateSlug($titulo);
-                        $arr = ['categoria_id'=>$categoria_id,'titulo'=>$titulo,'conteudo'=>$conteudo,'capa'=>$imagem,'slug'=>$slug,'order_id'=>'0','nome_tabela'=>'tb_site.noticias'];
-                        if(Painel::insert($arr)){
-                            Painel::redirect(INCLUDE_PATH_PAINEL.'cadastrar-noticias?sucesso');
+                        $arr = ['categoria_id' => $categoria_id, 'data' => date('Y-m-d'), 'titulo' => $titulo, 'conteudo' => $conteudo, 'capa' => $imagem, 'slug' => $slug, 'order_id' => '0', 'nome_tabela' => 'tb_site.noticias'];
+                        if (Painel::insert($arr)) {
+                            Painel::redirect(INCLUDE_PATH_PAINEL . 'cadastrar-noticias?sucesso');
                         }
-                            // Painel::alert('sucesso','   Notícia cadastrada com sucesso!');
-                    }else{
-                        Painel::alert('erro','   Já existe uma notícia com esse nome!');
+                        // Painel::alert('sucesso','   Notícia cadastrada com sucesso!');
+                    } else {
+                        Painel::alert('erro', '   Já existe uma notícia com esse nome!');
                     }
-                }else{
-                    Painel::alert('erro','   Selecione uma imagem válida!');
+                } else {
+                    Painel::alert('erro', '   Selecione uma imagem válida!');
                 }
             }
         }
-        if(isset($_GET['sucesso']))
-            Painel::alert('sucesso','   O cadastro foi realizado com sucesso!');
+        if (isset($_GET['sucesso']) && !isset($_POST['acao'])) {
+            Painel::alert('sucesso', '   O cadastro foi realizado com sucesso!');
+        }
         ?>
         <div class="form-group">
             <label>Categoria: </label>
@@ -43,7 +44,7 @@
                 $categorias = Painel::selectAll('tb_site.categorias');
                 foreach ($categorias as $key => $value) {
                 ?>
-                    <option <?php if($value['id'] == @$_POST['categoria_id']) echo 'selected'; ?> value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
+                    <option <?php if ($value['id'] == @$_POST['categoria_id']) echo 'selected'; ?> value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
                 <?php } ?>
             </select>
         </div><!--form-group-->
