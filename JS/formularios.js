@@ -1,6 +1,6 @@
 $(function(){
-    $('body').on('submit','form',function(){
-        var form = $(this).data('form');
+    $('body').on('submit','form.ajax-form',function(){
+        var form = $(this);
         $.ajax({
             beforeSend: function(){
                 $('.overlay-loading').fadeIn();

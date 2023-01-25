@@ -8,9 +8,10 @@
     <div class="overlay"></div>
     <!--overlay-->
     <div class="center">
-        <form>
+        <form class="ajax-form" method="post">
             <h2>Qual seu e-mail?</h2>
             <input type="email" name="email" required />
+            <input type="hidden" name="identificador" value="form_home">
             <input type="submit" name="acao" value="Cadastrar!" />
         </form>
     </div>

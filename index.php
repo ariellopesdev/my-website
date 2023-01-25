@@ -92,9 +92,7 @@
         }
     }
     ?>
-    <?php
-        $url = isset($_GET['url']) ? $_GET['url'] : 'contato';
-    ?>
+    
     </div><!--container-principal-->
     <footer <?php if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"' ?>>
         <div class="center">
@@ -103,11 +101,26 @@
         <!--center-->
     </footer>
     <script src="<?php echo INCLUDE_PATH; ?>JS/jquery.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>JS/constants.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>JS/scripts.js"></script>
     <?php
         if($url == 'home' || $url == '')
     ?>
     <script src="<?php echo INCLUDE_PATH; ?>JS/slider.js"></script>
+    <?php
+        if(is_array($url) && strstr($url[0],'noticias') !== false){
+    ?>
+        <script>
+            $(function(){
+                $('select').change(function(){
+                    location.href= include_path+"noticias/"+$(this).val();
+                })
+            })
+        </script>
+    <?php
+    }
+    ?>
+    <script src="<?php echo INCLUDE_PATH; ?>JS/formularios.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>JS/exemplo.js"></script>
 </body>
 

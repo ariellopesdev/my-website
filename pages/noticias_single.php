@@ -1,19 +1,25 @@
+<?php
+    $url = explode('/',$_GET['url']);
+    $verifica_categoria = MySql::conectar()->prepare("SELECT * FROM `tb_site.categorias` WHERE slug = ?");
+    $verifica_categoria->execute(array($url[1]));
+    if($verifica_categoria->rowCount() == 0){
+        Painel::redirect(INCLUDE_PATH.'noticias');
+    }
+    $categoria_info = $verifica_categoria->fetch();
+    $post = MySql::conectar()->prepare("SELECT * FROM `tb_site.noticias` WHERE slug = ? AND categoria_id = ?");
+    $post->execute(array($url[2],$categoria_info['id']));
+    if($post->rowCount() == 0){
+        Painel::redirect(INCLUDE_PATH.'noticias');
+    }
+    $post = $post->fetch();
+?>
 <section class="noticia-single">
     <div class="center">
         <header>
-            <h1><i class="fa fa-calendar"></i> 23/01/2023 - Título da minha notícia</h1>
+            <h1><i class="fa fa-calendar"></i> <?php echo date('d/m/Y',strtotime($post['data'])) ?> - <?php echo $post['titulo']?></h1>
         </header>
         <article>
-            <h3>Título em h3</h3>
-            <h2>Título em h2</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio nemo voluptates ipsam, earum molestiae excepturi unde ab cupiditate eveniet eius et illum ad consequuntur aperiam rem enim ea laboriosam soluta?Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus praesentium cumque animi excepturi laudantium odio earum officia quia illo vero debitis eaque aperiam commodi, fuga quos recusandae perspiciatis nisi? Architecto.Lore</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio nemo voluptates ipsam, earum molestiae excepturi unde ab cupiditate eveniet eius et illum ad consequuntur aperiam rem enim ea laboriosam soluta?Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus praesentium cumque animi excepturi laudantium odio earum officia quia illo vero debitis eaque aperiam commodi, fuga quos recusandae perspiciatis nisi? Architecto.Lore</p>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-            <img src="<?php echo INCLUDE_PATH ?>images/landscape.jpg" />
+            <?php echo $post['conteudo']?>
         </article>
     </div><!--center-->
 </section><!--noticia-single-->
