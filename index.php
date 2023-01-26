@@ -18,8 +18,8 @@
     <link href="<?php echo INCLUDE_PATH; ?>estilo/style.css" rel="stylesheet" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="palavras-chave, do, meu, site">
-    <meta name="description" content="Descrição do meu website">
+    <meta name="keywords" content="portifólio, painel de controle, painel de noticias, html5, css3, javascript, jquery, mediaquery">
+    <meta name="description" content="Este é um site desenvolvido pelos alunos do curso Web Developer Fullstack da Danki Code">
     <meta name="author" content="Ariel Lopes">
     <meta charset="utf-8" />
     <link rel="icon" href="<?php echo INCLUDE_PATH; ?>favicon.ico" type="image/x-icon" />
